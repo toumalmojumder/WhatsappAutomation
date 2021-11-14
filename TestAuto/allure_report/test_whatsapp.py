@@ -9,7 +9,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
+@allure.severity(allure.severity_level.NORMAL)
 class TestWhatApp:
+    @allure.severity(allure.severity_level.NORMAL)
     def test_search(self):
         self.driver = webdriver.Chrome("C:\\chromedriver_win32\\chromedriver.exe")
         self.driver.get("https://web.whatsapp.com/")
@@ -35,6 +37,8 @@ class TestWhatApp:
         time.sleep(1)
         self.driver.close()
         assert True
+
+    @allure.severity(allure.severity_level.NORMAL)
     def test_send_message(self):
         self.driver = webdriver.Chrome("C:\\chromedriver_win32\\chromedriver.exe")
         excel_path = "J:\\Automation\\WhatsappAutomation\\WhatsappAutomation\\TestAuto\\contacts.xlsx"
@@ -82,6 +86,7 @@ class TestWhatApp:
         self.driver.close()
         assert True
 
+    @allure.severity(allure.severity_level.NORMAL)
     def test_excel(self):
         self.driver = webdriver.Chrome("C:\\chromedriver_win32\\chromedriver.exe")
         excel_path = "J:\\Automation\\WhatsappAutomation\\WhatsappAutomation\\TestAuto\\contacts.xlsx"
@@ -130,6 +135,8 @@ class TestWhatApp:
             workbook.close()
         self.driver.close()
         assert True
+
+    @allure.severity(allure.severity_level.NORMAL)
     def test_logout(self):
         self.driver = webdriver.Chrome("C:\\chromedriver_win32\\chromedriver.exe")
         excel_path = "J:\\Automation\\WhatsappAutomation\\WhatsappAutomation\\TestAuto\\contacts.xlsx"
