@@ -55,20 +55,50 @@ for r in range(1, rows+1):
     time.sleep(1)
     sheet.cell(r, 3).value = "Sent"
     time.sleep(1)
-
+    #message seen block
     #print(review.find_element_by_xpath(".//div[@role='img']").get_attribute('aria-label'))
-    seen_xpath = '//span[@data-testid="msg-dblcheck"]'
-    seen_atr = WebDriverWait(driver, 20).until(
-        EC.presence_of_element_located((By.XPATH, seen_xpath))
+    #seen_xpath = '//span[@data-testid="msg-dblcheck"][@data-testid="tail-out"]'
 
-    )
-    time.sleep(2)
-    print(driver.find_element_by_xpath(seen_xpath).get_attribute('aria-label'))
+    # seen_xpath = '//div[@data-testid = "msg-meta"]//span[@dir="auto"]'
+    # seen_atr = WebDriverWait(driver, 20).until(
+    #     EC.presence_of_element_located((By.XPATH, seen_xpath))
+    #
+    # )
+    # time.sleep(2)
+    #
+    # print(driver.find_element_by_xpath(seen_xpath).get_attribute('aria-label'))
+
 
     #sheet.cell(r, 4).value =
 
     workbook.save(excel_path)
     workbook.close()
+time.sleep(3)
+#logout
+menu_1_xpath = '//div[@tabindex="0"] [@data-tab="6"] [@title="Menu"] '
+menu_1_btn = WebDriverWait(driver, 20).until(
+    EC.presence_of_element_located((By.XPATH, menu_1_xpath))
+    )
+menu_1_btn.click()
+time.sleep(2)
+close_xpath = '//li[@tabindex="-1"] //div[@aria-label="Close chat"]'
+close_btn = WebDriverWait(driver, 20).until(
+    EC.presence_of_element_located((By.XPATH, close_xpath))
+    )
+close_btn.click()
+time.sleep(2)
+menu_xpath = '//span[@data-testid="menu"][@data-icon="menu"]'
+menu_btn = WebDriverWait(driver, 20).until(
+    EC.presence_of_element_located((By.XPATH, menu_xpath))
+    )
+menu_btn.click()
+time.sleep(2)
+
+logout_xpath = '//li[@tabindex="-1"] //div[@aria-label = "Log out"]'
+logout_btn = WebDriverWait(driver, 20).until(
+    EC.presence_of_element_located((By.XPATH, logout_xpath))
+    )
+logout_btn.click()
 
 
 
